@@ -295,13 +295,15 @@ function createCanvasController(canvas) {
     var currSelection;
     if (currentSelection !== null) {
       currSelection = currentSelection;
-      drawHighlight([currentSelection], yourPlayerIndex);
+      drawHighlight([currSelection], yourPlayerIndex);
     }
     if (newSelection) {
+      currentSelection = null;
+      newSelection = false;
       //$log.info(currSelection);
       var index = findWord(currSelection);
       if (index === -1) {
-        //undrawHighlight(currentSelection, yourPlayerIndex);
+        //undrawHighlight([currSelection], yourPlayerIndex);
         return;
       }
 
@@ -319,8 +321,6 @@ function createCanvasController(canvas) {
         endOfMatch();
       }
       draw();
-      currentSelection = null;
-      newSelection = false;
     }
   }
 
