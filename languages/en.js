@@ -1,4 +1,5 @@
-window.angularTranslations = {
+window.angularTranslationsLoaded('en', {
+  WORDSEARCH_GAME: "Word Search",
   YOUR_PLAYER_COLOR_IS: "Your player color is {{color}}",
   COLOR_SCORE_IS: "{{color}}: {{score}}",
   WHITE: "White",
@@ -12,4 +13,4 @@ window.angularTranslations = {
   ORANGE: 'Orange',
   YELLOW: 'Yellow',
   SILVER: 'Silver'
-};
+});

@@ -1,4 +1,5 @@
-window.angularTranslations = {
+window.angularTranslationsLoaded('zh', {
+  WORDSEARCH_GAME: "找单词",
   YOUR_PLAYER_COLOR_IS: "您的玩家颜色是{{color}}",
   COLOR_SCORE_IS: "{{color}}: {{score}}",
   WHITE: "白色",
@@ -12,4 +13,4 @@ window.angularTranslations = {
   ORANGE: '橙色',
   YELLOW: '黄色',
   SILVER: '银色'
-};
+});

@@ -280,8 +280,8 @@ function createCanvasController(canvas) {
       ctx.fillText("" + secondsToReallyStart, canvasWidth / 2, canvasHeight / 2);
 
       ctx.font = '20px sans-serif';
-      var msg = $translate.instant("YOUR_PLAYER_COLOR_IS",
-          {color: $translate.instant(yourColor.toUpperCase())});
+      var msg = $translate("YOUR_PLAYER_COLOR_IS",
+          {color: $translate(yourColor.toUpperCase())});
       ctx.fillText(msg, canvasWidth / 4 - 30, canvasHeight / 4 - 30);
       return;
     }
@@ -326,8 +326,8 @@ function createCanvasController(canvas) {
 
   function render() {
     var posx, posy;
-    ctx.font = 'bold 16px sans-serif';
-    ctx.fillStyle = 'black';
+    ctx.font = '20px monospace';
+    ctx.fillStyle = '#8B7355';
     ctx.textBaseline = 'middle';
     // board
     for (var row = 0; row < rowsNum; row++) {
@@ -340,25 +340,26 @@ function createCanvasController(canvas) {
     }
 
     // word list
-    posx = (rowsNum + 1/2) * cellWidth;
+    posx = (rowsNum + 1/4) * cellWidth;
     for (var wrow = 0; wrow < words.length; wrow++) {
       posy = wrow * cellWidth + cellWidth / 2;
-      ctx.font = '12px sans-serif';
-      ctx.fillStyle = words[wrow].found ? 'silver' : 'black';
+      ctx.font = words[wrow].found ? 'italic 12px Arial' : 'bold 12px Arial';
+      ctx.fillStyle = words[wrow].found ? '#CDAA7D' : '#8B7355';
       ctx.fillText(words[wrow].content, posx, posy);
     }
+    //ctx.textBaseline = 'bottom';
   }
   function draw() {
     //To avoid the snake trail we need to paint the BG on every frame
     //Lets paint the canvas now
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#F5F5DC";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "#8B4513";
+
     ctx.lineWidth = 2;
     //ctx.strokeRect(0, 0, canvasWidth, canvasHeight);
     ctx.strokeRect(0, 0, canvasHeight, canvasHeight);
-    ctx.strokeRect(canvasHeight, 0, canvasWidth - canvasHeight - cellWidth / 2, canvasHeight);
-
+    ctx.strokeRect(canvasHeight, 0, canvasWidth - canvasHeight, canvasHeight);
     render();
 
     var i;
@@ -375,8 +376,8 @@ function createCanvasController(canvas) {
       ctx.font = '12px sans-serif';
       var color = playerColor[i];
       ctx.fillStyle = color;
-      var msg = $translate.instant("COLOR_SCORE_IS",
-          {color: $translate.instant(color.toUpperCase()), score: "" + allScores[i]});
+      var msg = $translate("COLOR_SCORE_IS",
+          {color: $translate(color.toUpperCase()), score: "" + allScores[i]});
   		ctx.fillText(msg,
           5 + i * canvasWidth / playersInfo.length, canvasHeight - 5);
     }
@@ -510,9 +511,4 @@ realTimeService.init({
   canvasHeight: canvasHeight
 });
 
-}])
-.config(['$translateProvider', function($translateProvider) {
-  'use strict';
-
-  $translateProvider.init(['en', 'zh']);
 }]);
