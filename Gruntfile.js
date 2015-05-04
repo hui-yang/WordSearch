@@ -31,7 +31,7 @@ module.exports = function(grunt) {
           console: false,
         },
       },
-      all: ['index.js', 'realTimeService.js']
+      all: ['index.js', 'realTimeService.js', 'languages/*.js']
     },
     uglify: {
       options: {
@@ -59,7 +59,8 @@ module.exports = function(grunt) {
             'http://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.11/seedrandom.min.js',
             'http://yoav-zibin.github.io/emulator/dist/realTimeServices.2.min.js',
             'http://yoav-zibin.github.io/emulator/main.css',
-            'dist/index.min.js'
+            'dist/index.min.js',
+            'dist/fpsmeter.min.js'
           ],
           network: [
             'languages/en.js',

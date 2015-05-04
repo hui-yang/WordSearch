@@ -43,6 +43,8 @@ function createCanvasController(canvas) {
   var yourPlayerIndex = null;
   var matchController = null;
 
+  var gameArea = document.getElementById("gameArea");
+
   // Game state
   var allWordsFound; // allWordsFound[playerIndex]  is the words found by playerIndex
   var wordsFound_array; // points to allWordsFound[yourPlayerIndex]
@@ -54,7 +56,12 @@ function createCanvasController(canvas) {
   var newSelection;
   var board;
 
+  var fpsmeter;
+
   function gotStartMatch(params) {
+    fpsmeter = new window.FPSMeter(gameArea, {
+      graph: 1, theme: 'colorful', position: 'absolute',
+      left: 'auto', top: '0%', right: '0%', bottom: 'auto'});
     yourPlayerIndex = params.yourPlayerIndex;
     playersInfo = params.playersInfo;
     matchController = params.matchController;
@@ -262,6 +269,7 @@ function createCanvasController(canvas) {
   }
 
 	function updateAndDraw() {
+    fpsmeter.tickStart();
     if (!isGameOngoing) {
       return;
     }
@@ -283,6 +291,7 @@ function createCanvasController(canvas) {
       var msg = $translate("YOUR_PLAYER_COLOR_IS",
           {color: $translate(yourColor.toUpperCase())});
       ctx.fillText(msg, canvasWidth / 4 - 30, canvasHeight / 4 - 30);
+      fpsmeter.tick();
       return;
     }
     draw();
@@ -321,6 +330,7 @@ function createCanvasController(canvas) {
         endOfMatch();
       }
       draw();
+      fpsmeter.tick();
     }
   }
 
@@ -408,7 +418,6 @@ function createCanvasController(canvas) {
   }
 
   function getIndices(actualX, actualY) {
-    var gameArea = document.getElementById("gameArea");
     var offsetX = gameArea.offsetLeft + canvas.offsetLeft;
     var offsetY = gameArea.offsetTop + canvas.offsetTop;
     var actualWidth = canvas.offsetWidth;
