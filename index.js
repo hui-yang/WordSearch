@@ -59,7 +59,7 @@ function createCanvasController(canvas) {
   var fpsmeter;
 
   function gotStartMatch(params) {
-    fpsmeter = new window.FPSMeter(gameArea, {
+    fpsmeter = new window.FPSMeter(document.body, {
       graph: 1, theme: 'colorful', position: 'absolute',
       left: 'auto', top: '0%', right: '0%', bottom: 'auto'});
     yourPlayerIndex = params.yourPlayerIndex;
