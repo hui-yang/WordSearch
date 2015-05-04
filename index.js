@@ -1,4 +1,4 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngTouch', 'ui.bootstrap'])
   .run(['$translate', '$log', 'realTimeService', 'randomService',
       function ($translate, $log, realTimeService, randomService) {
 'use strict';
