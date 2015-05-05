@@ -14,6 +14,6 @@ window.angularTranslationsLoaded('en', {
   YELLOW: 'Yellow',
   SILVER: 'Silver',
   RULES_OF_WORDSEARCH: 'Rules of WordSearch',
-  RULES_SLIDE1: 'Find the words in the list to the right. The words may appear horizontally, vertically or diagonally. When you find the word, cross it on the puzzle',
-  CLOSE: 'Close'
+  RULES_SLIDE1: 'Find the words in the list to the right. The words may appear horizontally, vertically or diagonally. When you find the word, cross it on the puzzle.',
+  CLOSE: 'Start Game'
 });

@@ -15,5 +15,5 @@ window.angularTranslationsLoaded('zh', {
   SILVER: '银色',
   RULES_OF_WORDSEARCH: '找单词的游戏规则',
   RULES_SLIDE1: '找出右边列表中的单词。单词可能连成一排、一列或者斜线。划出找到的单词。',
-  CLOSE: '关闭'
+  CLOSE: '开始游戏'
 });
