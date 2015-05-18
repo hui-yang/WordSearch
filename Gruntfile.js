@@ -65,7 +65,6 @@ module.exports = function(grunt) {
             'http://yoav-zibin.github.io/emulator/dist/realTimeServices.2.min.js',
             'http://yoav-zibin.github.io/emulator/main.css',
             'dist/index.min.js',
-            'dist/fpsmeter.min.js',
             'game.css',
             'imgs/HelpSlide1.png'
           ],

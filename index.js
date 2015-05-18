@@ -56,12 +56,7 @@ function createCanvasController(canvas) {
   var newSelection;
   var board;
 
-  var fpsmeter;
-
   function gotStartMatch(params) {
-    fpsmeter = new window.FPSMeter(document.body, {
-      graph: 1, theme: 'colorful', position: 'absolute',
-      left: 'auto', top: '0%', right: '0%', bottom: 'auto'});
     yourPlayerIndex = params.yourPlayerIndex;
     playersInfo = params.playersInfo;
     matchController = params.matchController;
@@ -214,7 +209,6 @@ function createCanvasController(canvas) {
         continue;
       }
       // find a position
-      //$log.info([w, x1, y1, x2, y2]);
       x = x1;
       y = y1;
       for (c = 0; c < w.length; c++) {
@@ -269,7 +263,6 @@ function createCanvasController(canvas) {
   }
 
 	function updateAndDraw() {
-    fpsmeter.tickStart();
     if (!isGameOngoing) {
       return;
     }
@@ -291,7 +284,6 @@ function createCanvasController(canvas) {
       var msg = $translate("YOUR_PLAYER_COLOR_IS",
           {color: $translate(yourColor.toUpperCase())});
       ctx.fillText(msg, canvasWidth / 4 - 30, canvasHeight / 4 - 30);
-      fpsmeter.tick();
       return;
     }
     draw();
@@ -309,7 +301,6 @@ function createCanvasController(canvas) {
     if (newSelection) {
       currentSelection = null;
       newSelection = false;
-      //$log.info(currSelection);
       var index = findWord(currSelection);
       if (index === -1) {
         //undrawHighlight([currSelection], yourPlayerIndex);
@@ -330,7 +321,6 @@ function createCanvasController(canvas) {
         endOfMatch();
       }
       draw();
-      fpsmeter.tick();
     }
   }
 

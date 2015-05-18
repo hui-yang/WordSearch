@@ -27,11 +27,7 @@
   <!-- build:js http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js -->
   <script crossorigin="anonymous" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.js"></script>
   <!-- /build -->
-
-  <!-- build:js dist/fpsmeter.min.js -->
-  <script crossorigin="anonymous" src"fpsmeter.js"></script>
-  <!-- /build -->
-
+  
   <!-- build:js dist/index.min.js -->
   <script crossorigin="anonymous" src="index.js"></script>
   <!-- /build -->
@@ -47,7 +43,7 @@
 </head>
 <body>
 
-  <div style="position:absolute; bottom:5px; left: 5px">
+  <div style="position:absolute; bottom:5px; left: 5px; z-index: 10;">
     <span ng-click="isHelpModalShown = true"
         class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
   </div>
