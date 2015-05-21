@@ -27,7 +27,7 @@
   <!-- build:js http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js -->
   <script crossorigin="anonymous" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.js"></script>
   <!-- /build -->
-  
+
   <!-- build:js dist/index.min.js -->
   <script crossorigin="anonymous" src="index.js"></script>
   <!-- /build -->
@@ -48,7 +48,7 @@
         class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
   </div>
 
-  <div class="overlayModal" ng-show="isHelpModalShown" aria-hidden="true">
+  <div class="overlayModal" ng-class="{zeroOpacity: !isHelpModalShown, oneOpacity: isHelpModalShown}" aria-hidden="true">
     <div class="modal-backdrop in"></div>
     <div class="modal-dialog">
       <div class="modal-content">
